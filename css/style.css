@@ -42,6 +42,7 @@ h3 {
 button {
   font-family: inherit;
   cursor: pointer;
+  outline: none;
 }
 
 img {
@@ -257,7 +258,8 @@ header {
     color var(--transition-parameter);
 }
 
-.hero button:hover {
+.hero button:hover,
+.hero button:focus {
   color: #000000;
   background-color: #fff;
 }
@@ -570,6 +572,7 @@ address {
   transform: translate(-50%, -50%) rotate(90deg) scale(0.1);
 }
 
+/* Внутренности модалки */
 .modal {
   position: absolute;
   top: 50%;
@@ -584,6 +587,12 @@ address {
 
   transform: translate(-50%, -50%) scale(1);
   transition: transform var(--transition-parameter);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
 }
 
 .button-close {
@@ -613,6 +622,105 @@ address {
   transform: scale(1.05);
 }
 
+.modal-form b {
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.modal-form .input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form .text-label {
+  margin-bottom: 4px;
+
+  color: #757575;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+
+.modal-form .text-input {
+  padding: 11px 12px;
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-form textarea {
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-form textarea::placeholder {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.input-container.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+.input-container.checkbox input {
+  margin-right: 8px;
+}
+
+.input-container.checkbox label {
+  font-size: 14px;
+  line-height: 1.71;
+
+  color: #757575;
+}
+
+.input-container.checkbox .privacy-link {
+  text-decoration-line: underline;
+  color: #2196f3;
+}
+
+.button-submit {
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  text-align: center;
+
+  color: #ffffff;
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 4px;
+
+  transition: background var(--transition-parameter);
+}
+
+.button-submit:hover,
+.button-submit:focus {
+  background: #188ce8;
+}
 /*! MAIN PORTFOLIO */
 /* Кнопки фильтра портфолио */
 .portfolio {
