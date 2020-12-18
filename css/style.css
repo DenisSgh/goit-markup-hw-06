@@ -754,7 +754,8 @@ address {
   transition: fill var(--transition-parameter);
 }
 
-.modal-form .form-input:focus .modal-form textarea:focus {
+.modal-form .form-input:focus,
+.modal-form textarea:focus {
   border: 1px solid var(--hover-button-color);
   outline: none;
 }
