@@ -753,13 +753,15 @@ address {
 
   transition: fill var(--transition-parameter);
 }
-
+.modal-form .form-input:hover,
 .modal-form .form-input:focus,
+.modal-form textarea:hover,
 .modal-form textarea:focus {
   border: 1px solid var(--hover-button-color);
   outline: none;
 }
 
+.modal-form .form-input:hover ~ .modal-icon,
 .modal-form .form-input:focus ~ .modal-icon {
   fill: var(--hover-button-color);
 }
@@ -790,28 +792,55 @@ address {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.input-container.checkbox {
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-icon {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 8px;
+  border: 2px solid #212121;
+  border-radius: 2px;
+
+  transition: background var(--transition-parameter),
+    border var(--transition-parameter);
+}
+
+.checkbox:checked + .checkbox-icon {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='15' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M3.957 7.752l-.069-.066-.069.065-.888.842-.076.072.076.073 3.496 3.334.069.066.069-.066 7.504-7.158.076-.073-.076-.072-.882-.841-.069-.066-.069.066-6.553 6.246-2.539-2.422z' fill='%23fff' stroke='%23fff' stroke-width='.2'/%3e%3c/svg%3e");
+  background-color: #2196f3;
+  background-size: contain;
+  background-origin: border-box;
+  border-color: #2196f3;
+}
+
+.input-checkbox-container label[for='privacy'] {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
 
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-}
 
-.input-container.checkbox input[type='checkbox'] {
-  margin-right: 8px;
-}
-
-.input-container.checkbox label[for='privacy'] {
   font-size: 14px;
   line-height: 1.71;
-
   color: #757575;
 }
 
-.input-container.checkbox .privacy-link {
+.input-checkbox-container .privacy-link {
   text-decoration-line: underline;
   color: #2196f3;
 }

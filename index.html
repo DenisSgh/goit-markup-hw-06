@@ -447,9 +447,14 @@
           <label  class="form-label" for="comment">Комментарии</label>
           <textarea type="text" name="comment" id="comment" placeholder="Введите текст"></textarea>
         </div>
-        <div class="input-container checkbox">
-          <input type="checkbox" name="privacy" id="privacy">
-          <label for="privacy">Соглашаюсь с рассылкой и принимаю <a href="" class="privacy-link">Условия договора</a></label>
+        <div class="input-checkbox-container">
+          <label for="privacy">
+            <input class="checkbox" type="checkbox" name="privacy" id="privacy">
+            <span class="checkbox-icon"></span>
+            <span> Соглашаюсь с рассылкой и принимаю
+            <a href="" class="privacy-link">Условия договора</a>
+            </span>
+          </label>
         </div>
 
         <button class="button-submit" type="submit">Отправить</button>
