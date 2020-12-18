@@ -42,7 +42,6 @@ h3 {
 button {
   font-family: inherit;
   cursor: pointer;
-  outline: none;
 }
 
 img {
@@ -511,13 +510,19 @@ address {
 }
 
 /* Социальные ссылки */
+.social-links-container {
+  min-width: 206px;
+  margin-right: 93px;
+}
+
 .social-links-container p {
-  font-size: 14px;
-  line-height: 1.14;
-  font-weight: bold;
-  text-transform: uppercase;
   margin-top: 12px;
   margin-bottom: 20px;
+
+  font-size: 14px;
+  line-height: 1.14;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .social-link-list {
@@ -550,6 +555,82 @@ address {
   transform: scale(1.25);
 }
 
+/* Подписка */
+.subscribe-container {
+  min-width: 570px;
+}
+
+.subscribe-container p {
+  margin-top: 12px;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+}
+
+.subscribe-form {
+  display: flex;
+  align-items: center;
+}
+
+.subscribe-form input {
+  width: 353px;
+  margin-right: 12px;
+  padding: 15px 16px;
+
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.subscribe-form input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.button-subscribe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 50px;
+  padding: 10px 28px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  text-align: center;
+  fill: currentColor;
+
+  color: #ffffff;
+  background: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 4px;
+
+  transition: color var(--transition-parameter),
+    background var(--transition-parameter), fill var(--transition-parameter);
+}
+
+.button-subscribe:hover,
+.button-subscribe:focus {
+  color: #000000;
+  background-color: #ffffff;
+}
+
+.subscribe-icon {
+  margin-left: 10px;
+}
 /*! Модальное окно */
 .backdrop {
   position: fixed;
@@ -622,9 +703,10 @@ address {
   transform: scale(1.05);
 }
 
-.modal-form b {
+.modal-form p {
   margin-bottom: 12px;
 
+  font-weight: 700;
   font-size: 20px;
   line-height: 1.15;
   text-align: center;
@@ -633,9 +715,12 @@ address {
 .modal-form .input-container {
   display: flex;
   flex-direction: column;
+
+  position: relative;
+  margin-bottom: 10px;
 }
 
-.modal-form .text-label {
+.modal-form .form-label {
   margin-bottom: 4px;
 
   color: #757575;
@@ -644,13 +729,38 @@ address {
   letter-spacing: 0.01em;
 }
 
-.modal-form .text-input {
-  padding: 11px 12px;
-  margin-bottom: 10px;
+.modal-form .form-input {
+  position: relative;
+  padding: 11px 12px 11px 42px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  transition: border var(--transition-parameter);
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+
+  fill: currentColor;
+
+  transition: fill var(--transition-parameter);
+}
+
+.modal-form .form-input:focus .modal-form textarea:focus {
+  border: 1px solid var(--hover-button-color);
+  outline: none;
+}
+
+.modal-form .form-input:focus ~ .modal-icon {
+  fill: var(--hover-button-color);
 }
 
 .modal-form textarea {
@@ -662,11 +772,19 @@ address {
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
   cursor: pointer;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+}
+
+.input-container.textarea {
+  margin-bottom: 0;
 }
 
 .modal-form textarea::placeholder {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
 }
@@ -680,11 +798,12 @@ address {
   margin-right: auto;
   margin-bottom: 30px;
 }
-.input-container.checkbox input {
+
+.input-container.checkbox input[type='checkbox'] {
   margin-right: 8px;
 }
 
-.input-container.checkbox label {
+.input-container.checkbox label[for='privacy'] {
   font-size: 14px;
   line-height: 1.71;
 
@@ -697,10 +816,11 @@ address {
 }
 
 .button-submit {
-  margin-left: auto;
-  margin-right: auto;
   width: 200px;
   height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 55px;
 
   font-weight: 700;
   font-size: 16px;
@@ -780,12 +900,6 @@ address {
   margin-bottom: 30px;
 }
 
-.content .item:hover,
-.content .item:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
 .content .overlay {
   position: relative;
   overflow: hidden;
@@ -809,6 +923,16 @@ address {
   transition: transform var(--transition-parameter),
     opacity var(--transition-parameter);
   transform: translateY(100%);
+}
+
+.content-link {
+  display: inline-block;
+}
+
+.content-link:hover,
+.content-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .content-link:hover .overlay-text,
